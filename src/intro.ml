@@ -15,6 +15,14 @@ let slides = [
   content= <:html<
     <h3>Your Tutorial Teachers Are...</h3>
     <ul>
+     <li><b>Dr. Yaron Minsky</b>,<br />
+       <div style="font-size: 80%">
+       Head of Technology,<br />
+       Jane Street Capital<br />
+       www: <a href="http://ocaml.janestreet.com/">http://ocaml.janestreet.com</a>&nbsp; &nbsp; twitter: <a href="http://twitter.com/yminsky">yminsky</a>
+       </div>
+     </li>
+ 
      <li>
        <b>Dr. Anil Madhavapeddy</b>,<br />
        <div style="font-size: 80%">
@@ -24,21 +32,8 @@ let slides = [
        </div>
      </li>
        
-     <li><b>Dr. David Scott</b>,<br />
-       <div style="font-size: 80%">
-       XenServer Platform Architect,<br />
-       Citrix and Xen.org.<br />
-       www: <a href="http://dave.recoil.org/">http://dave.recoil.org</a>&nbsp; &nbsp; twitter: <a href="http://twitter.com/mugofsoup">mugofsoup</a>
-       </div>
-     </li>
-     <li><b>Dr. Thomas Gazagnaire</b>,
-       <div style="font-size: 80%">
-       CTO, OCamlPro.<br />
-       www: <a href="http://gazagnaire.org/">http://gazagnaire.org</a>&nbsp; &nbsp; twitter: <a href="http://twitter.com/eriangazag">eriangazag</a>
-       </div>
-     </li>
     </ul>
-    <p>With <b>lots</b> of help from Richard Mortier, Raphael Proust and Balraj Singh, who couldn't make it to Tokyo.</p>
+    <p>With thanks to OCamlPro for the OPAM package manager.</p>
   >>
 };
 {
@@ -134,9 +129,7 @@ let slides = [
     <h3>Software Required</h3>
     <ul>
      <li>A 64-bit UNIX (Linux or MacOS X)</li>
-     <li>OCaml 3.12.0 (with <tt>make world opt.opt</tt> to have the native code compilers)</li>
-     <li><tt>tuntap</tt> (default on Linux, <a href="http://tuntaposx.sourceforge.net/">download</a> on MacOS X)</li>
-     <li>Git checkout of <a href="http://github.com/avsm/mirage/">http://github.com/avsm/mirage</a></li>
+     <li>OCaml 3.12.1 or OCaml 4.00.0.</li>
     </ul>
   >>
 };
