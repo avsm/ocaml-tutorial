@@ -1,0 +1,7 @@
+src/filesystem_*.ml
+src/main.ml
+_build/
+.*.swp
+*.native
+setup.data
+setup.log
