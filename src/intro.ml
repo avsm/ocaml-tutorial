@@ -138,42 +138,52 @@ let slides = [
     <h3>Installation</h3>
     <p>For OCaml, use your package manager, or from source:</p>
 <pre class="noprettyprint">
-$str:dl$ cd ocaml-3.12.0
+$str:dl$ cd ocaml-3.12.1
 $str:dl$ make world opt opt.opt
 $str:dl$ make install
+$str:dl$ curl -OL https://github.com/OCamlPro/opam/tarball/0.6.0
+$str:dl$ tar -zxvf 0.6.0
 </pre>
-    <p>Mirage installs into <tt>$str:dl$HOME/mir-inst</tt> by:</p>
+    <p>On MacOS X, install <a href="http://github.com/mxcl/bootstrap">Bootstrap</a> and:</p>
 <pre class="noprettyprint">
-$str:dl$ cd mirage.git
-$str:dl$ make
-$str:dl$ make install
-$str:dl$ export PATH=$str:dl$HOME/mir-inst/bin:$str:dl$PATH
-
-// if you are using emacs
-$str:dl$ make install-el
-// if you are using vim, re-install <a href="https://github.com/avsm/ocaml-annot">ocaml-annot</a>
+$str:dl$ brew install ocaml
+$str:dl$ brew install rlwrap  # interactive line edit
+$str:dl$ brew tap mirage/ocaml
+$str:dl$ brew install opam
+</pre>
+>>
+};
+{ styles=[];
+  content= <:html<
+    <h3>OPAM: Installation</h3>
+    <p>OPAM is a package manager for OCaml libraries.  To initialise it:</p>
+<pre class="noprettyprint">
+$str:dl$ opam init
+$str:dl$ eval `opam config -env`
+$str:dl$ opam install ssl lwt async
+</pre>
+    <p>You should now have an OCaml environment with Core/Async/Lwt. To run a toplevel:</p>
+<pre class="noprettyprint">
+$str:dl$ echo '#use "topfind"' > ~/.ocamlinit
+$str:dl$ rlwrap ocaml -I $OCAML_TOPLEVEL_PATH
+        OCaml version 4.00.0
+# #require "lwt";;
+# #require "async";;
 </pre>
 >>
 };
 { styles=[];
   content= <:html<
    <h3>Run This Tutorial</h3>
-<p>The tutorial is itself written in Mirage, so build it by:</p>
+<p>The tutorial is itself written in OCaml, so build it using OPAM:</p>
 <pre class="noprettyprint">
-$str:dl$ git clone http://github.com/avsm/mirage-tutorial
-$str:dl$ cd mirage-tutorial/slides
-$str:dl$ make
+$str:dl$ opam install mirage-net ssl cohttp cow
+$str:dl$ git clone http://github.com/avsm/ocaml-tutorial
+$str:dl$ cd ocaml-tutorial
+$str:dl$ make &amp;&amp; make run
 </pre>
-<p>You can run it in many different combinations. The default is UNIX sockets. <b>Is anyone here running Xen?</b></p>
-<table>
-<tr><th>Target</th><th>Backend</th><th>Storage</th><th>Network</th> </tr>
-<tr><td>run-socket_crunch</td><td>UNIX</td><td>Builtin</td><td>Sockets</td></tr>
-<tr><td>run-socket_fs</td><td>UNIX</td><td>UNIX filesystem</td><td>Sockets</td></tr>
-<tr><td>run-direct_crunch</td><td>UNIX</td><td>Builtin</td><td>Tuntap+OCaml</td></tr>
-<tr><td>run-direct_fs</td><td>UNIX</td><td>Disk image+OCaml</td><td>Tuntap+OCaml</td></tr>
-<tr><td>run-xen_crunch</td><td>Xen</td><td>Builtin</td><td>Xennet+OCaml</td></tr>
-<tr><td>run-xen_fs</td><td>Xen</td><td>Xenblock+OCaml</td><td>Xennet+OCaml</td></tr>
-</table>
+<p>There should now be an HTTP server running on local port 8080. If this port is
+already used, change it in <code>src/server.ml</code> and recompile.</p>
   >>
 };
 ]
