@@ -177,6 +177,27 @@ $str:dl$ rlwrap ocaml -I $OCAML_TOPLEVEL_PATH
 };
 { styles=[];
   content= <:html<
+    <h3>Utop</h3>
+    <p>A more interactive toplevel is available via the <tt>utop</tt> utility.</p>
+<pre class="noprettyprint">
+$str:dl$ opam install utop
+$str:dl$ utop
+Welcome to utop version 1.2.1 (using OCaml version 4.00.0)
+# #utop_help ;;
+</pre>
+    <p><tt>utop</tt> features tab-completion for modules and functions, command history, and many key bindings.</p>
+    <p>It also executes the Lwt thread loop automatically, by examining the function's return type!</p>
+
+<pre class="noprettyprint">
+utop $str:dl$ Lwt_unix.sleep 2.0;;
+utop $str:dl$ open Lwt;;
+utop $str:dl$ Lwt_unix.sleep 2.0 >|= fun () -> print_endline "foo";;
+- : unit = () 
+</pre>
+>>
+};
+{ styles=[];
+  content= <:html<
    <h3>Run This Tutorial</h3>
 <p>The tutorial is itself written in OCaml, so build it using OPAM:</p>
 <pre class="noprettyprint">

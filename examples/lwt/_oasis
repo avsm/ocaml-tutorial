@@ -1,0 +1,33 @@
+OASISFormat: 0.3
+Name:        examples
+Version:     1.0.0
+Synopsis:    OCaml Tutorial 
+Authors:     Anil Madhavapeddy, Yaron Minsky
+License:     ISC
+BuildTools:  ocamlbuild
+BuildDepends:       lwt.unix, lwt.syntax
+
+Executable "echo1"
+  Path:               .
+  MainIs:             echo1.ml
+
+Executable "myecho1"
+  Path:               .
+  MainIs:             myecho1.ml
+
+Executable "myheads"
+  Path:               .
+  MainIs:             myheads.ml
+
+Executable "heads"
+  Path:               .
+  MainIs:             heads.ml
+
+Executable "sleep"
+  Path:               .
+  MainIs:             sleep.ml
+
+Executable "mysleep"
+  Path:               .
+  MainIs:             mysleep.ml
+

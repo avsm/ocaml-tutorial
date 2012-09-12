@@ -25,7 +25,7 @@ let slides = [
 <pre class="noprettyprint">
 $str:dl$ cd ocaml-tutorial/examples/lwt
 $str:dl$ vim mysleep.ml
-$str:dl$ make mysleep
+$str:dl$ make
 # answer is in sleep.ml
 </pre>
 <ul>

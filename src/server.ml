@@ -46,3 +46,4 @@ let main () =
     CL.listen mgr src spec
   )
 
+let _ = Sys.(set_signal sigpipe Signal_ignore)
