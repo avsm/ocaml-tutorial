@@ -4,5 +4,6 @@ _build/
 .*.swp
 *.native
 *.byte
+*~
 setup.data
 setup.log
