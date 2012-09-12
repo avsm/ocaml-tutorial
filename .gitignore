@@ -3,5 +3,6 @@ src/main.ml
 _build/
 .*.swp
 *.native
+*~
 setup.data
 setup.log
