@@ -24,7 +24,6 @@ let slides = [
     <br />
      <small>using the Lwt library</small>
     </h1>
-    <p>Raphael Proust, Balraj Singh and Anil Madhavapeddy</p>
   >>
 };
 {
@@ -32,14 +31,14 @@ let slides = [
   content= <:html<
     <h3>Lightweight Threads</h3>
     <ul>
-     <li>Mirage is <b>event-driven</b> with no preemption. Containers execute until
-         they cannot make progress, and then sleep until woken up.</li>
-     <li><tt>Lwt</tt> wraps event callbacks to maintain the illusion of straight-line code.</li>
+     <li>Lwt provides threads that are <b>event-driven</b> with no preemption. An Lwt program executes until
+         it cannot make progress, and sleeps until woken up by an I/O event or timeout.</li>
+     <li><tt>Lwt</tt> abstracts event callbacks to maintain the illusion of straight-line control flow in code you write.</li>
     </ul>
     <p>Let's look at some examples.
-    They are all in<br /> <a href="https://github.com/avsm/mirage-tutorial/tree/master/">mirage-tutorial/examples/lwt</a>, and you build them by:</p>
+    They are all in<br /> <a href="https://github.com/avsm/ocaml-tutorial/tree/master/">ocaml-tutorial/examples/lwt</a>, and you build them by:</p>
     <section><pre class="noprettyprint">
-$str:dl$ mir-build unix-socket/sleep.bin
+$str:dl$ ocaml setup.ml -build
 $str:dl$ ./_build/unix-socket/sleep.bin</pre></section> 
     <p>More tutorial content is available at:<br /><a href="http://www.openmirage.org/wiki/tutorial-lwt">http://openmirage.org/wiki/tutorial-lwt</a> <i>(this tutorial)</i><br /><a href="http://ocsigen.org/lwt/manual/">http://ocsigen.org/lwt/manual/</a> <i>(Lwt manual)</i></p>
 >>
