@@ -1,2 +1,0 @@
-* Things to install (with opam)
-** async, comparelib, core_extended
