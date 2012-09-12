@@ -162,13 +162,16 @@ $str:dl$ opam init
 $str:dl$ eval `opam config -env`
 $str:dl$ opam install ssl lwt async
 </pre>
-    <p>You should now have an OCaml environment with Core/Async/Lwt. To run a toplevel:</p>
+    <p>You should now have an OCaml environment with Core/Async/Lwt. Next, create an <b>.ocamlinit</b> file:</p>
 <pre class="noprettyprint">
-$str:dl$ echo '#use "topfind"' > ~/.ocamlinit
+$str:dl$ cat > ~/.ocamlinit 
+#use "topfind"
+#thread
+#require "lwt";;
+#require "async";;
+^D
 $str:dl$ rlwrap ocaml -I $OCAML_TOPLEVEL_PATH
         OCaml version 4.00.0
-# #require "lwt";;
-# #require "async";;
 </pre>
 >>
 };
@@ -177,7 +180,7 @@ $str:dl$ rlwrap ocaml -I $OCAML_TOPLEVEL_PATH
    <h3>Run This Tutorial</h3>
 <p>The tutorial is itself written in OCaml, so build it using OPAM:</p>
 <pre class="noprettyprint">
-$str:dl$ opam install mirage-net ssl cohttp cow
+$str:dl$ opam install mirage-net mirage-fs ssl cohttp cow
 $str:dl$ git clone http://github.com/avsm/ocaml-tutorial
 $str:dl$ cd ocaml-tutorial
 $str:dl$ make &amp;&amp; make run
