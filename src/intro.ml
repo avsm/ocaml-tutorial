@@ -18,11 +18,11 @@ let slides = [
      <li><b>Dr. Yaron Minsky</b>,<br />
        <div style="font-size: 80%">
        Head of Technology,<br />
-       Jane Street Capital<br />
+       Jane Street<br />
        www: <a href="http://ocaml.janestreet.com/">http://ocaml.janestreet.com</a>&nbsp; &nbsp; twitter: <a href="http://twitter.com/yminsky">yminsky</a>
        </div>
      </li>
- 
+
      <li>
        <b>Dr. Anil Madhavapeddy</b>,<br />
        <div style="font-size: 80%">
@@ -31,7 +31,7 @@ let slides = [
        www: <a href="http://anil.recoil.org/">http://anil.recoil.org</a>&nbsp; &nbsp; twitter: <a href="http://twitter.com/avsm">avsm</a>
        </div>
      </li>
-       
+
     </ul>
     <p>With thanks to OCamlPro for the OPAM package manager.</p>
   >>
