@@ -80,7 +80,7 @@ $str:dl$ brew install opam
 <pre class="noprettyprint">
 $str:dl$ opam init
 $str:dl$ eval `opam config -env`
-$str:dl$ opam install ssl lwt async
+$str:dl$ opam install ssl lwt async core_extended
 </pre>
     <p>You should now have an OCaml environment with Core/Async/Lwt. Next, create an <b>.ocamlinit</b> file:</p>
 <pre class="noprettyprint">
