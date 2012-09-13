@@ -2,6 +2,7 @@ open Core.Std
 open Async.Std
 open Protocol
 
+(* CR yminsky: consider adding an RPC that blocks on the server side. *)
 let publish_impl dir msg =
   Directory.publish dir msg;
   return ()
@@ -47,3 +48,4 @@ let start_server () =
 let () =
   whenever (start_server ());
   never_returns (Scheduler.go ())
+

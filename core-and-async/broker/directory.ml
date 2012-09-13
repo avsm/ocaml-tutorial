@@ -2,6 +2,7 @@ open Core.Std
 open Async.Std
 open Protocol
 
+(* A publisher for a single topic *)
 module Topic_pub : sig
   type t
   val create : Message.t -> t
@@ -37,7 +38,6 @@ end = struct
 
   let num_subscribers t = List.length t.subscribers
 end
-
 
 type t = (Topic.t, Topic_pub.t) Hashtbl.t
 

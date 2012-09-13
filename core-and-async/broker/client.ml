@@ -17,8 +17,8 @@ let port_flag =
 
 (** [start_async f] runs the function f, shutting down when it's done, and also calls
     [Scheduler.go] to get the async event-loop started.  *)
-let start_async f =
-  whenever (f () >>= fun () -> return (shutdown 0));
+let run_under_async f =
+  whenever (f () >>| fun () -> shutdown 0);
   never_returns (Scheduler.go ())
 
 let with_rpc_conn f =
@@ -50,7 +50,7 @@ let pub_cmd = Command.create_no_accum
     | [topic;msg] ->
       (Topic.of_string topic,msg)
     | _ -> failwith "wrong number of arguments")
-  (fun args -> start_async (fun () -> publish args))
+  (fun args -> run_under_async (fun () -> publish args))
 
 let subscribe topic =
   with_rpc_conn (fun conn ->
@@ -70,7 +70,7 @@ let sub_cmd = Command.create_no_accum
   ~final:(function
     | [topic] -> Topic.of_string topic
     | _ -> failwith "wrong number of arguments")
-  (fun args -> start_async (fun () -> subscribe args))
+  (fun args -> run_under_async (fun () -> subscribe args))
 
 
 let dump () =
@@ -89,7 +89,7 @@ let dump_cmd = Command.create_no_accum
   ~final:(function
     | [] -> ()
     | _ -> failwith "wrong number of arguments")
-  (fun args -> start_async dump)
+  (fun args -> run_under_async dump)
 
 let () =
   Exn.handle_uncaught ~exit:true (fun () ->

@@ -1,8 +1,8 @@
 open Core.Std
 open Async.Std
 
-module Username : Identifier = String_id
-module Topic    : Identifier = String_id
+module Username : Identifier = String
+module Topic    : Identifier = String
 
 module Message = struct
   type t = { text: string;
