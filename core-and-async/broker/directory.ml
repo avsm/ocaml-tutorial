@@ -2,6 +2,7 @@ open Core.Std
 open Async.Std
 open Protocol
 
+(* A publisher for a single topic *)
 module Topic_pub : sig
   type t
   val create : Message.t -> t
@@ -38,7 +39,6 @@ end = struct
   let num_subscribers t = List.length t.subscribers
 end
 
-
 type t = (Topic.t, Topic_pub.t) Hashtbl.t
 
 let create () = Topic.Table.create ()
@@ -51,11 +51,10 @@ let publish t message =
   Topic_pub.publish s message
 
 let subscribe t topic =
-  Option.Monad_infix.(
-    Hashtbl.find t topic
-    >>| fun s ->
-    Topic_pub.subscribe s
-  )
+  let open Option.Monad_infix in
+  Hashtbl.find t topic
+  >>| fun s ->
+  Topic_pub.subscribe s
 
 let dump t =
   Hashtbl.to_alist t
