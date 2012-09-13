@@ -64,6 +64,25 @@ is safe to run this from your <tt>.profile</tt> to ensure they are always set.</
 };
 { styles=[];
   content= <:html<
+    <h1>Core and Async
+    <br />
+     <small>an interactive walkthrough</small>
+    </h1>
+  >>
+};
+{ styles=[];
+  content= <:html<
+   <h3>Publishing Your Project</h3>
+   <ul>
+     <li>Setup the project build with OASIS</li>
+     <li>Create an OPAM development repository</li>
+     <li>Push a package file to the OPAM repo.</li>
+     <li>Tell people about your OPAM branch for them to subscribe to.</li>
+   </ul>
+  >>
+};
+{ styles=[];
+  content= <:html<
     <h3>OASIS basics</h3>
     <ul>
       <li>Create an <tt>_oasis</tt> file that describes your project.</li>
@@ -76,21 +95,22 @@ is safe to run this from your <tt>.profile</tt> to ensure they are always set.</
 { styles=[];
   content= <:html<
    <h3>OASIS Usage</h3>
+  <p>Look in <tt>examples/myproject</tt> for an OASIS-enabled broker:</p>
 <pre class="noprettyprint">
 $dl$ oasis setup
+# this generates a Makefile, so just call make
+# alternatively, the below commands also work
 $dl$ ocaml setup.ml -configure
 $dl$ ocaml setup.ml -build
 $dl$ ocaml setup.ml -install
+$dl$ ocamlbuild broker.native
 </pre>
-    <i>Important:</i> OASIS does not fully support syntax extensions yet, so you must manually add them to the <tt>_tags</tt> files
+    <i>Important:</i> OASIS does not fully support syntax extensions yet, so you must manually add a line to the <tt>_tags</tt> file that is generated:
+<pre class="noprettyprint">
+true: syntax_camlp4o
+true: pkg_sexplib.syntax, pkg_bin_prot.syntax, pkg_fieldslib.syntax
+</pre>
   >>
 };
-{ styles=[];
-  content= <:html<
-    <h1>Core and Async
-    <br />
-     <small>an interactive walkthrough</small>
-    </h1>
-  >>
-};
+
 ]

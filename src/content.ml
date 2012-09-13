@@ -9,7 +9,7 @@ let header =[ {
   content= <:xml<
    <h1>Real World OCaml</h1>
    <br />
-   Tutorial T3<br />
+   Tutorial T1<br />
    Commercial Users of Function Programming (CUFP),<br />
    Copenhagen, Denmark, Sep 2012
   >>;
