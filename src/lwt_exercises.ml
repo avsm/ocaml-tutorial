@@ -48,7 +48,7 @@ $str:dl$ vim myecho1.ml
 $str:dl$ make myecho1
 # answer is in echo1.ml
 </pre>
-<p>You can use this function as a traffic generator:</p>
+<p>You can use this function as a traffic generator (paste it into <tt>utop</tt> to try it out interactively):</p>
 <pre>
 let read_line () =
   Lwt_unix.sleep (Random.float 1.5) $str:rt$
