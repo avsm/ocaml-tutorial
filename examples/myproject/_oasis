@@ -1,0 +1,13 @@
+OASISFormat:   0.3
+Name:          MyProject
+Version:       1.0.0
+Synopsis:      OCaml Tutorial 
+Authors:       Your Name Here
+License:       ISC
+Plugins:       DevFiles (0.3)
+BuildTools:    ocamlbuild
+BuildDepends:  threads,async
+
+Executable "broker"
+  Path:               .
+  MainIs:             broker.ml

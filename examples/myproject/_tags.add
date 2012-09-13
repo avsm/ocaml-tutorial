@@ -1,0 +1,3 @@
+# add these lines to the OASIS-generated _tags file
+true: syntax_camlp4o
+true: pkg_sexplib.syntax, pkg_bin_prot.syntax, pkg_fieldslib.syntax
